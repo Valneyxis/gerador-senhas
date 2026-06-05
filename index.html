@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerador de senhas</title>
+  </head>
+  <body>
+    <main class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+        <!-- Cabeçalho do gerador de senhas -->
+      <h1 class="text-4xl font-bold mb-6">Gerador de Senhas</h1>
+
+        <!-- Formulário para configurar e gerar a senha -->
+      <form
+        id="formGerador"
+        class="bg-white p-6 rounded shadow-md w-full max-w-sm"
+      >
+        <div class="mb-4">
+          <label for="comprimento" class="block text-gray-700 font-bold mb-2"
+            >Comprimento da senha:</label
+          >
+          <input
+            type="number"
+            id="comprimento"
+            name="comprimento"
+            min="8"
+            max="128"
+            value="12"
+            class="w-full px-3 py-2 border rounded"
+          />
+        </div>
+
+        <!-- Opções para tipos de caracteres a incluir na senha -->
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2">
+            Tipos de caracteres:
+          </label>
+
+          <div class="bg-gray-50 p-4 rounded-lg border space-y-4">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                id="maiusculas"
+                name="maiusculas"
+                checked
+              />
+              <span>Maiúsculas</span>
+            </label>
+
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                id="minusculas"
+                name="minusculas"
+                checked
+              />
+              <span>Minúsculas</span>
+            </label>
+
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="numeros" name="numeros" checked />
+              <span>Números</span>
+            </label>
+
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="simbolos" name="simbolos" checked />
+              <span>Símbolos</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Botão para gerar a senha e campo para exibir a senha gerada -->
+        <button
+          id="gerarSenha"
+          type="submit"
+          class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+        >
+          Gerar Senha
+        </button>
+        <input
+          type="text"
+          id="senhaGerada"
+          readonly
+          placeholder="Sua senha aparecerá aqui"
+          class="w-full mt-4 px-3 py-2 border rounded bg-gray-50 text-center font-semibold"
+        />
+
+        <!-- Botão para copiar a senha gerada e mensagem de confirmação -->
+        <button
+          type="button"
+          id="copiarSenha"
+          class="w-full mt-2 bg-gray-700 text-white py-2 rounded"
+        >
+          Copiar Senha
+        </button>
+        <p id="mensagem" class="text-green-600 text-sm mt-2"></p>
+      </form>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
